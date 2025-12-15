@@ -23,6 +23,28 @@ Example response:
   "movies": ["3 Idiots", "Hera Pheri", "Munna Bhai MBBS", "Chupke Chupke", "Andaz Apna Apna"]
 }
 
+📡 API Endpoints
+
+GET /
+Health check endpoint
+Returns:
+{
+  "message": "Gemini Proxy Backend is operational."
+}
+
+
+POST /api/gemini
+Generates movie recommendations using Gemini AI.
+Request Body:
+{
+  "prompt": "Recommend funny Indian movies"
+}
+Response :
+{
+  "movies": ["Movie 1", "Movie 2", "Movie 3", "Movie 4", "Movie 5"]
+}
+
+
 
 🛠 Tech Stack
 
