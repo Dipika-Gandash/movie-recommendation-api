@@ -12,8 +12,12 @@ app.use(cors({
 app.use(express.json());
 
 
-const ai = new GoogleGenAI({}); 
-const MODEL = "gemini-2.5-flash";
+const ai = new GoogleGenAI({
+  apiKey: process.env.API_KEY
+}); 
+
+const MODEL = "gemini-2.5-flash-lite";
+const PORT = process.env.PORT || 5000;
 
 app.get("/", (req, res) => {
   res.status(200).json({ message: "Gemini Proxy Backend is operational." });
@@ -46,5 +50,4 @@ app.post("/api/gemini", async (req, res) => {
   }
 });
 
-const PORT = 5000;
 app.listen(PORT, () => console.log(`Backend running on http://localhost:${PORT}`));
