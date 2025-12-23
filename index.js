@@ -5,8 +5,19 @@ import cors from "cors";
 
 dotenv.config();
 const app = express();
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://Netflix-Ai.web.app"
+];
+
 app.use(cors({
-    origin: 'http://localhost:5173' 
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  }
 }));
 
 app.use(express.json());
