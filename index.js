@@ -7,7 +7,7 @@ dotenv.config();
 const app = express();
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://Netflix-Ai.web.app"
+  "https://netflix-gpt-rust-three.vercel.app"
 ];
 
 app.use(cors({
